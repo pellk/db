@@ -38,13 +38,13 @@ namespace nuell
 					writer.WriteNumberValue(reader.GetInt64(columnIndex));
 					break;
 				case TypeCode.Single:
-					writer.WriteStringValue(reader.GetFloat(columnIndex).ToString(CultureInfo.InvariantCulture));
+					writer.WriteNumberValue(reader.GetFloat(columnIndex));
 					break;
 				case TypeCode.Double:
-					writer.WriteStringValue(reader.GetDouble(columnIndex).ToString(CultureInfo.InvariantCulture));
+					writer.WriteNumberValue(reader.GetDouble(columnIndex));
 					break;
 				case TypeCode.Decimal:
-					writer.WriteStringValue(reader.GetDecimal(columnIndex).ToString(CultureInfo.InvariantCulture));
+					writer.WriteNumberValue(reader.GetDecimal(columnIndex));
 					break;
 				case TypeCode.DateTime:
 					writer.WriteStringValue(reader.GetDateTime(columnIndex));
