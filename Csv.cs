@@ -1,4 +1,5 @@
 using System.Data;
+using System.Globalization;
 using System.Reflection;
 using System.Text;
 using Microsoft.Data.SqlClient;
@@ -93,13 +94,13 @@ namespace nuell
 							str.Append(reader.GetByte(i));
 							break;
 						case TypeCode.Single:
-							str.Append(reader.GetFloat(i));
+							str.Append(reader.GetFloat(i).ToString(CultureInfo.InvariantCulture));
 							break;
 						case TypeCode.Double:
-							str.Append(reader.GetDouble(i));
+							str.Append(reader.GetDouble(i).ToString(CultureInfo.InvariantCulture));
 							break;
 						case TypeCode.Decimal:
-							str.Append(reader.GetDecimal(i));
+							str.Append(reader.GetDecimal(i).ToString(CultureInfo.InvariantCulture));
 							break;
 						case TypeCode.DateTime:
 							str.Append(new DateTimeOffset(reader.GetDateTime(i)).ToUnixTimeSeconds());

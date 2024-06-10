@@ -1,4 +1,5 @@
 using System.Data;
+using System.Globalization;
 using System.Text;
 using System.Text.Json;
 using Microsoft.Data.SqlClient;
@@ -37,13 +38,13 @@ namespace nuell
 					writer.WriteNumberValue(reader.GetInt64(columnIndex));
 					break;
 				case TypeCode.Single:
-					writer.WriteNumberValue(reader.GetFloat(columnIndex));
+					writer.WriteStringValue(reader.GetFloat(columnIndex).ToString(CultureInfo.InvariantCulture));
 					break;
 				case TypeCode.Double:
-					writer.WriteNumberValue(reader.GetDouble(columnIndex));
+					writer.WriteStringValue(reader.GetDouble(columnIndex).ToString(CultureInfo.InvariantCulture));
 					break;
 				case TypeCode.Decimal:
-					writer.WriteNumberValue(reader.GetDecimal(columnIndex));
+					writer.WriteStringValue(reader.GetDecimal(columnIndex).ToString(CultureInfo.InvariantCulture));
 					break;
 				case TypeCode.DateTime:
 					writer.WriteStringValue(reader.GetDateTime(columnIndex));
